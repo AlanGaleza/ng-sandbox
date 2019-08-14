@@ -1,0 +1,31 @@
+<form [formGroup]="testForm" class="example-container">
+  <mat-form-field>
+    <input formControlName="name" matInput placeholder="Name" required>
+    <mat-error>This field is mandatory.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input formControlName="surname" matInput placeholder="Surname" required>
+    <mat-error>This field is mandatory.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select formControlName="gender" placeholder="Gender" required>
+      <mat-option>None</mat-option>
+      <ng-container *ngFor="let genderValue of genderValue">
+        <mat-option value="{{genderValue.value}}">{{genderValue.value}}</mat-option>
+      </ng-container>
+    </mat-select>
+    <mat-error>This field is mandatory.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select formControlName="color" placeholder="Color" required>
+      <mat-option>None</mat-option>
+      <app-color-picker [colors]="colorPalette"></app-color-picker>
+    </mat-select>
+    <mat-error>This field is mandatory.</mat-error>
+  </mat-form-field>
+
+  <pre>{{testForm.value | json}}</pre>
+</form>

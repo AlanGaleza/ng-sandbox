@@ -1,0 +1,7 @@
+<a *ngFor="let color of colors"
+  class="color"
+  [style.background-color]="color"
+  [class.selected]="color === selectedColor"
+  (click)="selectColor(color)">
+  {{color}}
+</a>
